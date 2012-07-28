@@ -1,0 +1,52 @@
+.icon-add { 
+	background-image: url(../images/add.gif) !important; background-repeat: no-repeat;
+}
+
+.icon-delete { 
+	background-image: url(../images/delete.gif) !important; background-repeat: no-repeat; 
+}
+
+.icon-logout { 
+	background-image: url(../images/logout.png) !important; background-repeat: no-repeat; 
+}
+
+.icon-user {
+    background-image: url(../images/user.png) !important;
+}
+
+.icon-user-add {
+    background-image: url(../images/user_add.gif) !important; background-repeat: no-repeat;
+}
+
+.icon-user-delete {
+    background-image: url(../images/user_delete.png) !important; background-repeat: no-repeat;
+}
+
+.icon-save {
+    background-image: url(../images/save.gif) !important; background-repeat: no-repeat;
+}
+
+.icon-cancel {
+    background-image: url(../images/cancel.png) !important; background-repeat: no-repeat;
+}
+
+.icon-config {
+    background-image: url(../images/config.png) !important; background-repeat: no-repeat;
+}
+
+.icon-indicators{
+    background-image: url(../images/indicators.png) !important; background-repeat: no-repeat;
+}
+
+
+.icon-clear{
+    background-image: url(../images/edit_clear.png) !important; background-repeat: no-repeat;
+}
+
+.icon-create-orders{
+	background-image: url(../images/create_orders.png) !important; background-repeat: no-repeat;
+}
+
+.icon-list-orders{
+	background-image: url(../images/list_orders.png) !important; background-repeat: no-repeat;
+}
