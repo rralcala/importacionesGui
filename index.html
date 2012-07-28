@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Importaciones</title>
+    <link rel="stylesheet" type="text/css" href="extjs/resources/css/ext-all.css">
+    <link rel="stylesheet" type="text/css" href="css/imp_style.css">
+    <link rel="stylesheet" type="text/css" href="extjs/src/ux/grid/css/GridFilters.css">
+    <script type="text/javascript" src="extjs/ext-debug.js"></script>
+    <script type="text/javascript" src="extjs/pkgs/classes.js"></script>
+    <script type="text/javascript">
+        
+        var Conf = {};
+        Conf.serverUrl = "http://192.168.37.128/importacionesSrv/index.php?r=";
+        Conf.pageSize = 200;
+        Conf.dateFormat = 'Y-m-d'; //'Y-m-d H:i:s';
+        
+        var locale = Ext.util.Cookies.get("IMP-LANG") != null ? Ext.util.Cookies.get("IMP-LANG") : 'en',
+            head = document.getElementsByTagName("head")[0];
+        
+
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = 'locale/app-language-' + locale + '.js'
+        head.appendChild(script);
+        
+    </script>
+    <script type="text/javascript" src="app.js"></script>
+</head>
+<body></body>
+</html>
