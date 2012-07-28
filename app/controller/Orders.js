@@ -1,7 +1,7 @@
 /**
  * Orders Controller.
  * 
- * @author: Jorge Ramirez <jorgeramirez1990@gmail.com>
+ * @author: Roberto Rodriguez <rralcala@gmail.com>
  **/
 
 Ext.define('IMP.controller.Orders', {

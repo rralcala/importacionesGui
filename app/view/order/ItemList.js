@@ -1,7 +1,7 @@
 /**
  * Defines the grid wich shows items.
  * 
- * @author: Jorge Ramirez <jorgeramirez1990@gmail.com>
+ * @author: Roberto Rodriguez <rralcala@gmail.com>
  **/
 
 Ext.define('IMP.view.order.ItemList' ,{

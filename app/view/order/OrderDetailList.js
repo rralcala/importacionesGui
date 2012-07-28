@@ -5,7 +5,7 @@
  * The store can be a LocalOrderDetail which means that the order is
  * going to be created or OrderDetail otherwise.
  * 
- * @author: Jorge Ramírez <jorgeramirez1990@gmail.com>
+@author: Roberto Rodriguez <rralcala@gmail.com>
  **/
 
 Ext.define('IMP.view.order.OrderDetailList', {

@@ -1,7 +1,6 @@
 /**
  * Defines de Order List GUI.
  * 
- * @author: Jorge Ramírez <jorgeramirez1990@gmail.com>
  * @author: Roberto Rodriguez <rralcala@gmail.com>
  **/
 
