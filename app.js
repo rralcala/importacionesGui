@@ -1,3 +1,5 @@
+Ext.Loader.setConfig({enabled:true});
+Ext.Loader.setPath('Ext.ux', 'extjs/examples/ux');
 Ext.application({
     name: 'IMP',
     
