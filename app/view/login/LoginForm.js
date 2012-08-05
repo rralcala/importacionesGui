@@ -39,6 +39,8 @@ Ext.define('IMP.view.login.LoginForm', {
 		this.items = [
 			{
 				xtype: 'form',
+				
+				id: 'loginForm',
 				items: [
 					{
 						xtype: 'fieldset',

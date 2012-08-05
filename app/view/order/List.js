@@ -31,12 +31,12 @@ Ext.define('IMP.view.order.List', {
 	
 	//isLocalStore: false, // Indicates if the store syncs with the server. Default to false.
 	
-	xtype: 'form',
-    id: 'fieldSetForm',
+	//xtype: 'form',
+    //id: 'orderlistForm',
     collapsible: true,
     url: 'save-form.php',
     frame: true,
-    title: 'Create new purchase order',
+    //title: 'Create new purchase order',
     bodyPadding: '5 5 0',
         
     fieldDefaults: {

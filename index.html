@@ -8,7 +8,8 @@
     <script type="text/javascript">
         
         var Conf = {};
-        Conf.serverUrl = "http://192.168.37.128/importacionesSrv/index.php?r=";
+		var currentURL = window.location;
+        Conf.serverUrl = "http://"+currentURL.host+"/importacionesSrv/index.php?r=";
         Conf.pageSize = 200;
         Conf.dateFormat = 'Y-m-d'; //'Y-m-d H:i:s';
         
