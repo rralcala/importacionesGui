@@ -46,6 +46,9 @@ Ext.define('IMP.controller.Orders', {
             'orderdetaillist button[action=deleteItem]': {
                 click: this.onDeleteOrderDetailClicked
             },
+			'orderdetaillist': {
+                edit: this.onGridEdit
+            },
             'orderlist button[action=createOrder]': {
 				click: this.onCreateOrderClicked
 			},
@@ -66,6 +69,13 @@ Ext.define('IMP.controller.Orders', {
 		contentRegion.add(Ext.widget(widget));
 	},
 
+	
+	
+	onGridEdit: function(editor, e) {
+	e.record.set('orderTotal', e.record.data.price * e.record.data.ManualQty);
+		//e.record.data.orderTotal = ;
+    },
+	
     /**
      * Clears filters data
      **/
@@ -86,6 +96,7 @@ Ext.define('IMP.controller.Orders', {
 			i, j, exist = false;
 		
 		for(i = 0; i < items.length; i++){
+		console.log(items[i]);
 			for(j = 0; j < odStore.count(); j++){ //check if it is already selected.
 				exist = odStore.getAt(j).get("item").Code == items[i].raw.Code;
 				if(exist){
@@ -95,6 +106,10 @@ Ext.define('IMP.controller.Orders', {
 			if(!exist){
 				var detail = Ext.create('IMP.model.OrderDetail');
 				detail.set('item', items[i].raw);
+				detail.set('estimatedSales', items[i].raw.estimatedSales);
+				detail.set('currentStock', items[i].raw.currentStock);
+				detail.set('price', items[i].raw.price);
+				console.log(detail);
 				details.push(detail);
 			}
 		}

@@ -33,7 +33,7 @@ Ext.define('IMP.view.order.List', {
 	
 	//xtype: 'form',
     //id: 'orderlistForm',
-    collapsible: true,
+    //collapsible: true,
     url: 'save-form.php',
     frame: true,
     //title: 'Create new purchase order',

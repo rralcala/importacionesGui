@@ -7,11 +7,20 @@
  * 
 @author: Roberto Rodriguez <rralcala@gmail.com>
  **/
-
+ var cellEditing = Ext.create('Ext.grid.plugin.CellEditing', {
+        clicksToEdit: 1
+    });
 Ext.define('IMP.view.order.OrderDetailList', {
 	extend: 'Ext.grid.Panel',
 
     requires: [
+	    'Ext.selection.CellModel',
+    'Ext.grid.*',
+    'Ext.data.*',
+    'Ext.util.*',
+    'Ext.state.*',
+    'Ext.form.*',
+    'Ext.ux.CheckColumn',
         'Ext.ux.grid.FiltersFeature'
     ],
     
@@ -37,7 +46,7 @@ Ext.define('IMP.view.order.OrderDetailList', {
 		this.initConfig(config);
 		this.callParent(arguments);
 	},
-	
+	plugins: [cellEditing],
 	initComponent: function() {
 		var labels = Conf.labelsText.order.OrderList,
 			indicatorLabels = Conf.labelsText.indicator.List,
@@ -137,27 +146,75 @@ Ext.define('IMP.view.order.OrderDetailList', {
 
         //var fields = IMP.model.OrderDetail.prototype.fields.items;
 	        var fields = [
-                      'estimation1', 'weight1', 'estimation2', 'weight2','estimation3', 'weight3',
-                      'estimatedSales','currentStock','pendingStock','desiredStockTime','ShipTime',
-                      'StockTime','desiredStock','suggestedQty','ManualQty','price','orderTotal'
+                      /*'estimation1', 'weight1', 'estimation2', 'weight2','estimation3', 'weight3',*/
+                      'estimatedSales','currentStock','pendingStock','desiredStock','ShipTime',
+                      'StockTime','suggestedQty'
                   ];	
         for(i = 0; i < fields.length; i++){
             var e = fields[i];
-	//			,dc = fields[i].displayColumn;
+	//			,dc = fields[i].displayColumn
             
           //  if(dc)
-	    {
+	    
 		this.columns.push({
 					header: labelsHeader[e + 'Header'],
 					dataIndex: e,
 					xtype: 'numbercolumn',
-		    format: '0.00',
+					format: '0.00',
 					width: 60,
 					menuDisabled: true
+					
 				});
-			}
+			
         }        
-
+		this.columns.push({
+					header: labelsHeader['desiredStockTimeHeader'],
+					dataIndex: 'desiredStockTime',
+					xtype: 'numbercolumn',
+					format: '0.00',
+					width: 80,
+					menuDisabled: true,
+					editor: {
+						xtype: 'numberfield',
+						allowBlank: false,
+						minValue: 0,
+						maxValue: 100000
+					}
+				})
+		this.columns.push({
+					header: labelsHeader['ManualQtyHeader'],
+					dataIndex: 'ManualQty',
+					xtype: 'numbercolumn',
+					format: '0.00',
+					width: 80,
+					menuDisabled: true,
+					editor: {
+						xtype: 'numberfield',
+						allowBlank: false,
+						minValue: 0,
+						maxValue: 100000
+					}
+				});
+						this.columns.push({
+					header: labelsHeader['priceHeader'],
+					dataIndex: 'price',
+					xtype: 'numbercolumn',
+					format: '0.00',
+					width: 80,
+					menuDisabled: true
+					
+				});
+				this.columns.push({
+					header: labelsHeader['orderTotalHeader'],
+					dataIndex: 'orderTotal',
+					xtype: 'numbercolumn',
+					format: '0.00',
+					width: 80,
+					menuDisabled: true
+					
+				});
+		''
+		
 		this.selModel = Ext.create('Ext.selection.CheckboxModel', {
 			listeners: {
 				selectionchange: {fn: this.onSelectChange, scope: this}
