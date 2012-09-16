@@ -1,7 +1,7 @@
 /**
  * Defines de Create Order GUI.
  * 
- * @author: Jorge Ramírez <jorgeramirez1990@gmail.com>
+ * @author: Roberto Rodriguez <rralcala@gmail.com>
  **/
 
 Ext.define('IMP.view.order.CreateOrderGui', {

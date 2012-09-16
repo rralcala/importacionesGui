@@ -3,7 +3,7 @@
  * 
  * Language: Spanish
  * 
- * @author: Jorge Ramírez <jorgeramirez1990@gmail.com>
+ * @author: Roberto Rodriguez <rralcala@gmail.com>
  **/
 
 Conf.labelsText = {};
@@ -13,7 +13,7 @@ Conf.labelsText.LoginForm = function() {
 		langFieldSetTitle: 'Opciones de Idiomas',
 		comboEmptyText: 'Seleccione un idioma...',
 		loginFieldSetTitle: 'Informaci\u00F3n de Inicio de Sesi\u00F3n',
-		usernameFieldLabel: 'Nombre de Usuario',
+		usernameFieldLabel: 'Usuario',
 		passwordFieldLabel: 'Contrase\u00F1a',
 		localeFailureMsg: 'Error al cargar el archivo de idiomas',
 		englishLang: 'Ingl\u00E9s',
@@ -76,7 +76,6 @@ Conf.labelsText.user.BasicForm = function() {
 	}
 }();
 
-
 Conf.labelsText.user.Edit = function() {
 	return {
 		title: 'Editar Usuario',
@@ -98,6 +97,7 @@ Conf.labelsText.user.Create = function() {
 Conf.labelsText.indicator = {};
 
 Conf.labelsText.indicator.List = {
+	familyHeader: 'Familia',
 	periodHeader: 'Periodo',
 	meanHeader: 'Media Total', 
 	stdDevHeader: 'Desv STD', 
@@ -126,49 +126,67 @@ Conf.labelsText.indicator.List = {
 
 Conf.labelsText.order = {};
 
-Conf.labelsText.order.OrderCreatedMsg = "The Order have been created";
+Conf.labelsText.order.OrderCreatedMsg = "El pedido se ha creado.";
 
 Conf.labelsText.order.BasicList = {
-	weightHeader: 'Weight',
-	weight2Header: 'Weight 2',
-	weight3Header: 'Weight 3',
-	estimatedSalesHeader: 'Estimated Sales',
+	loading: 'Cargando...',
+	period1Start: 'Inicio Periodo 1',
+	period2Start: 'Inicio Periodo 2',
+	period1End: 'Final Periodo 1',
+	period2End: 'Final Periodo 2',
+	apply: 'Aplicar',
+	cancel: 'Cancelar',
+		suggestedQtyHeader: 'Qty Sugerida',
+		priceHeader: 'Precio',
+		orderTotalHeader: 'Total',
+	weight1Header: 'Peso',
+	weight2Header: 'Peso',
+	weight3Header: 'Peso',
+	familyHeader: 'Linea',
+	codeHeader: 'Codigo',
+	nameHeader: 'Item',
+	estimation1Header: 'Periodo 1',
+	estimation2Header: 'Periodo 2',
+	estimation3Header: 'Tendencia',
+	currentStockHeader: 'Stock',
+	pendingStockHeader: 'Entrante',
+	estimatedSalesHeader: 'Venta Estimada',
 	stockHeader: 'Stock',
-	inputHeader: 'Input',
-	desiredStockTimeHeader: 'Desired Stock Time',
-	shippingTimeHeader: 'Shipping Time',
-	estimatedStockTimeHeader: 'Estimated Stock Time',
-	desiredStockHeader: 'Desired Stock',
-	desiredStockBasedOnHeader: 'Desired Stock Based On',
-	orderHeader: 'Order',
-	provPriceHeader:'Prov Price',
-	totalOrderHeader: 'Total Order Header',
-	orderEstimatedHeader: 'Order Estimated',
-	manualOrderHeader: 'Manual Order',
-	totalEstimatedOrderHeader: 'Total Estimated Order',
-	totalManualOrderHeader: 'Total Manual Order',
-	dateHeader: 'Date',
-	DateHeader: 'Date',
+	inputHeader: 'Entrada',
+	desiredStockTimeHeader: 'Tiempo Stock Deseado',
+	shippingTimeHeader: 'Tiempo de Entrega',
+	estimatedStockTimeHeader: 'Tiempo Stock Estimado',
+	desiredStockHeader: 'Stock Deseado',
+	desiredStockBasedOnHeader: 'Stock Deseado basado en',
+	orderHeader: 'Pedido',
+	provPriceHeader:'Precio Prov',
+	totalOrderHeader: 'Total Pedido',
+	orderEstimatedHeader: 'Pedido Estimado',
+	manualOrderHeader: 'Pedido Manual',
+	totalEstimatedOrderHeader: 'Pedido Total Estimado',
+	totalManualOrderHeader: 'Total Pedido Manual',
+	dateHeader: 'Fecha',
+	DateHeader: 'Fecha',
 	PeriodStartHeader: 'Period Start',
-	PeriodEndHeader: 'Period End',
-	SubPeriodHeader: 'SubPeriod',
-	StockTimeHeader: 'Stock Time',
-	ShipTimeHeader: 'Ship Time',
-	ManualQtyHeader: 'Manual Quantity'
+	PeriodEndHeader: 'Final Periodo',
+	SubPeriodHeader: 'Sub Periodo',
+	StockTimeHeader: 'Tiempo de Stock',
+	ShipTimeHeader: 'Tiempo de Entrega',
+	ManualQtyHeader: 'Cantidad Manual'
 };
 
 Conf.labelsText.order.ItemList = {
-	brandHeader: 'Brand',
-	codeHeader: 'Code',
-	nameHeader: 'Description',
-	clearFiltersButtonText: 'Clear Filters',
-	unitHeader: 'Unit',
-	unit2Header: 'Unit 2',
+	brandHeader: 'Marca',
+	codeHeader: 'Codigo',
+	nameHeader: 'Descripcion',
+	clearFiltersButtonText: 'Limpiar Filtros',
+	unitHeader: 'Unidad',
+	unit2Header: 'Unidad 2',
 	branchHeader: 'Branch',
-	lineHeader: 'Line',
-	countryHeader: 'Country',
-	artTypeHeader: 'Art. Type',
-	addButtonText: 'Add'
+	lineHeader: 'Linea',
+	countryHeader: 'Pais',
+	artTypeHeader: 'Tipo Art.',
+	addButtonText: 'Agregar'
 };
 
 Conf.labelsText.order.OrderList = {
@@ -177,4 +195,3 @@ Conf.labelsText.order.OrderList = {
 	deleteButtonText: 'Eliminar',
 	createButtonText: 'Crear Pedido'
 };
-

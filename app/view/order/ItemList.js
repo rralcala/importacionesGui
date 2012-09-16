@@ -17,16 +17,19 @@ Ext.define('IMP.view.order.ItemList' ,{
     
     store: 'OrderDetails',
     
-    loadMask: true,
     
-    viewConfig: {
-        trackOver: false
-    },
+    
+    
     
     
     initComponent: function() {
-        var labels = Conf.labelsText.order.BasicList
-            me = this;
+		var labels = Conf.labelsText.order.BasicList;
+		this.viewConfig =  {
+			loadMask: new   Ext.LoadMask(this, {msg: labels.loading}),
+			trackOver: false
+		};
+        
+        me = this;
         
         this.title = labels.userListTitle;
         
@@ -85,7 +88,7 @@ Ext.define('IMP.view.order.ItemList' ,{
         var fields = [
                       'estimation1', 'weight1', 'estimation2', 'weight2','estimation3', 'weight3',
                       'estimatedSales','currentStock','pendingStock','desiredStockTime','ShipTime',
-                      'StockTime','desiredStock','suggestedQty','ManualQty','price','orderTotal'
+                      'StockTime','desiredStock','suggestedQty','price','orderTotal'
                   ];
                   
                   for(i = 0; i < fields.length; i++){

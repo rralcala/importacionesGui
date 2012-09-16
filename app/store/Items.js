@@ -1,7 +1,7 @@
 /**
  * Defines the Items store.
  * 
- * @author: Jorge Ramirez <jorgeramirez1990@gmail.com>
+ * @author: Roberto Rodriguez <rralcala@gmail.com>
  **/
 
 Ext.define('IMP.store.Items', {

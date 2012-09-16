@@ -27,13 +27,15 @@ Ext.define('IMP.view.login.LoginForm', {
 		var labels = Conf.labelsText.LoginForm;
 		
 		var languages = [
-			['en', 'English', 'ascii'],
-			['es', 'Spanish', 'utf-8'],
+			['es', Conf.labelsText.LoginForm.spanishLang, 'utf-8'],
+			['en', Conf.labelsText.LoginForm.englishLang, 'ascii'],
+			
 		],
 
 			langStore = Ext.create('Ext.data.ArrayStore', {
 			fields: ['code', 'language', 'charset'],
 			data : languages
+			
 		});
 		
 		this.items = [
@@ -55,7 +57,8 @@ Ext.define('IMP.view.login.LoginForm', {
 								emptyText: labels.comboEmptyText,
 								hideLabel: true,
 								listeners: {
-									select: { fn: this.languageSetup, scope: this }
+									select: { fn: this.languageSetup, scope: this },
+									render: { fn: function(cmb) { cmb.select(langStore.getAt(langStore.findExact('code', locale) ));   }}
 								}
 							}
 						]
@@ -88,7 +91,7 @@ Ext.define('IMP.view.login.LoginForm', {
 				action: 'submit'
 			}
 		];
-
+		
 		this.callParent(arguments);
 	},
 	

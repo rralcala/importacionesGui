@@ -70,7 +70,9 @@ Ext.define('IMP.controller.Orders', {
 	},
 
 	
-	
+	/**
+	 * Calculates fields after a manual modification.
+	 */
 	onGridEdit: function(editor, e) {
 	e.record.set('orderTotal', e.record.data.price * e.record.data.ManualQty);
 		//e.record.data.orderTotal = ;
@@ -96,7 +98,7 @@ Ext.define('IMP.controller.Orders', {
 			i, j, exist = false;
 		
 		for(i = 0; i < items.length; i++){
-		console.log(items[i]);
+		
 			for(j = 0; j < odStore.count(); j++){ //check if it is already selected.
 				exist = odStore.getAt(j).get("item").Code == items[i].raw.Code;
 				if(exist){
@@ -105,11 +107,8 @@ Ext.define('IMP.controller.Orders', {
 			}
 			if(!exist){
 				var detail = Ext.create('IMP.model.OrderDetail');
-				detail.set('item', items[i].raw);
-				detail.set('estimatedSales', items[i].raw.estimatedSales);
-				detail.set('currentStock', items[i].raw.currentStock);
-				detail.set('price', items[i].raw.price);
-				console.log(detail);
+				 detail.data = Ext.clone(items[i].data); 
+				 detail.raw = Ext.clone(items[i].raw); 
 				details.push(detail);
 			}
 		}
@@ -146,7 +145,7 @@ Ext.define('IMP.controller.Orders', {
 	 **/
 	disableCreateOrderButton: function(store) {
 		
-		Ext.getCmp('createOrderButton').setDisabled(store.count() === 0);
+		//Ext.getCmp('createOrderButton').setDisabled(store.count() === 0);
 	},
 	
 	/**

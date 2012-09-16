@@ -3,12 +3,10 @@
  * 
  * Language: English
  * 
- * @author: Jorge Ramírez <jorgeramirez1990@gmail.com>
+ * @author: Roberto Rodriguez <rralcala@gmail.com>
  **/
 
-
 Conf.labelsText = {};
-
 
 Conf.labelsText.LoginForm = function() {
 	return {
@@ -99,6 +97,7 @@ Conf.labelsText.user.Create = function() {
 Conf.labelsText.indicator = {};
 
 Conf.labelsText.indicator.List = {
+	familyHeader: 'Line',
 	periodHeader: 'Perdiod',
 	meanHeader: 'Mean', 
 	stdDevHeader: 'Std Dev', 
@@ -127,12 +126,19 @@ Conf.labelsText.indicator.List = {
 
 Conf.labelsText.order = {};
 
-Conf.labelsText.order.OrderCreatedMsg = "El pedido se ha creado";
+Conf.labelsText.order.OrderCreatedMsg = "The Order have been created";
 
 Conf.labelsText.order.BasicList = {
-		suggestedQtyHeader: 'Suggested Qty',
-		priceHeader: 'Price',
-		orderTotalHeader: 'Total',
+	loading: 'Loading...',
+	period1Start: 'Period 1 Start',
+	period2Start: 'Period 2 Start',
+	period1End: 'Period 1 End',
+	period2End: 'Period 2 End',
+	apply: 'Apply',
+	cancel: 'Cancel',
+	suggestedQtyHeader: 'Suggested Qty',
+	priceHeader: 'Price',
+	orderTotalHeader: 'Total',
 	weight1Header: 'Weight',
 	weight2Header: 'Weight',
 	weight3Header: 'Weight',
@@ -182,7 +188,6 @@ Conf.labelsText.order.ItemList = {
 	artTypeHeader: 'Art. Type',
 	addButtonText: 'Add'
 };
-
 
 Conf.labelsText.order.OrderList = {
 	clearFiltersButtonText: 'Clear Filters',

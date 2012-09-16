@@ -124,14 +124,14 @@ Ext.define('IMP.view.order.OrderDetailList', {
                 dataIndex: 'Line',
                 width: 80,
                 renderer: function(value, metaData, record, rowIndex, colIndex, store, view){
-                    return record.get("item")["Line"];
+                    return record.get("Line");//["Line"];
                 }
             },{
                 header: indicatorLabels.codeHeader,  
                 dataIndex: 'Code',
                 width: 80,
                 renderer: function(value, metaData, record, rowIndex, colIndex, store, view){
-                    return record.get("item")["Code"];
+                    return record.get("Code");//[""];
                 }
             },{
                 header: indicatorLabels.nameHeader, 
@@ -139,7 +139,7 @@ Ext.define('IMP.view.order.OrderDetailList', {
                 menuDisabled: true,
                 width: 100,
                 renderer: function(value, metaData, record, rowIndex, colIndex, store, view){
-                    return record.get("item")["itemName"];
+                    return record.get("itemName");//[""];
                 }
             },
         ];

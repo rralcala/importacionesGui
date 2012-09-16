@@ -17,6 +17,7 @@ Ext.define('IMP.controller.Login', {
 			}
 		});
 		
+		
     },
     
     loginSubmit: function(button){

@@ -47,19 +47,26 @@ Ext.define('IMP.view.order.List', {
         anchor: '100%'
     },
 	
-	buttons:[{
-            text: 'Apply',
+
+	
+		
+	initComponent: function() {
+	
+	var labels = Conf.labelsText.order.BasicList;
+	
+	this.buttons = [{
+            text: labels.apply,
 			action: 'applyParams',
             handler: function() {
                 this.up('form').getForm().isValid();
             }
         },{
-            text: 'Cancel',
+            text: labels.cancel,
             handler: function() {
                 this.up('form').getForm().reset();
             }
-        }],
-	items: [
+        }];
+	this.items = [
 		{
 			xtype: 'container',
             anchor: '100%',
@@ -74,16 +81,18 @@ Ext.define('IMP.view.order.List', {
                 layout: 'anchor',
 				items: [
 					{
-						fieldLabel: 'Period 1 Start',
+						fieldLabel: labels.period1Start,
 						name: 'p1start',
 						id:  'p1start',
 						value: Ext.Date.add(date, Ext.Date.YEAR, -1),
-						xtype: 'datefield'
+						xtype: 'datefield',
+						labelWidth: 100
 					},{
-						fieldLabel: 'Period 2 Start',
+						fieldLabel: labels.period2Start,
 						value: Ext.Date.add(date, Ext.Date.MONTH, -3),
 						name: 'p2start',
-						xtype: 'datefield'
+						xtype: 'datefield',
+						labelWidth: 100
 					}
 					]
 			},{   // column #2
@@ -91,31 +100,18 @@ Ext.define('IMP.view.order.List', {
                 flex: 1,
                 layout: 'anchor',
 					items: [{
-						fieldLabel: 'Period 1 End',
+						fieldLabel: labels.period1End,
 						value: date,
 						name: 'p1end',
 						xtype: 'datefield'
 					}, {
-						fieldLabel: 'Period 2 End',
+						fieldLabel: labels.period2End,
 						value: date,
 						name: 'p2end',
 						xtype: 'datefield'
 					}] 
 			}]
-		}],
-		
-	initComponent: function() {
-	/*	var labels = Conf.labelsText.order.OrderList,
-			labelsHeader = Conf.labelsText.order.BasicList,
-			me = this,
-			filters;*/
-			
-		
-        
-      //  this.features = [filters];
-	//		 var TodaysDate = new Date();
-	//var TodaysDatePlus90 = TodaysDate.add('d',90);
-//	alert(this.items[0].getXType());
+		}];
 	this.callParent(arguments);
 	
         
