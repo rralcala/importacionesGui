@@ -135,6 +135,7 @@ Conf.labelsText.order.BasicList = {
 	period1End: 'Period 1 End',
 	period2End: 'Period 2 End',
 	apply: 'Apply',
+	applyDates: 'Apply Dates',
 	cancel: 'Cancel',
 	suggestedQtyHeader: 'Suggested Qty',
 	priceHeader: 'Price',

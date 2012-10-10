@@ -55,7 +55,7 @@ Ext.define('IMP.view.order.List', {
 	var labels = Conf.labelsText.order.BasicList;
 	
 	this.buttons = [{
-            text: labels.apply,
+            text: labels.applyDates,
 			action: 'applyParams',
             handler: function() {
                 this.up('form').getForm().isValid();
@@ -65,7 +65,14 @@ Ext.define('IMP.view.order.List', {
             handler: function() {
                 this.up('form').getForm().reset();
             }
-        }];
+			
+			
+        },{
+            text: 'Guardar',
+			disabled: true,
+            handler: function() {
+                alert('Save');
+            }}];
 	this.items = [
 		{
 			xtype: 'container',
@@ -109,6 +116,18 @@ Ext.define('IMP.view.order.List', {
 						value: date,
 						name: 'p2end',
 						xtype: 'datefield'
+					}] 
+			},{   // column #3
+				xtype: 'container',
+                flex: 1,
+                layout: 'anchor',
+					items: [{
+						xtype: 'textfield',
+						name: 'description',
+						fieldLabel: 'Descripcion',
+						allowBlank: false,
+						maxLength: 100,
+						width: '200px'
 					}] 
 			}]
 		}];
