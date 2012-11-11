@@ -1,7 +1,7 @@
 /**
  * Defines the OrderDetail model which represents order detail information
  * 
- * @author: Jorge Ramirez <jorgeramirez1990@gmail.com>
+ * @author: Roberto Rodriguez Alcala <rralcala@gmail.com>
  **/
 
 Ext.define('IMP.model.OrderDetail', {
@@ -12,16 +12,14 @@ Ext.define('IMP.model.OrderDetail', {
 		{name: 'request_id', type: 'int', displayColumn: false},
 		{name: 'item_id', type: 'int', displayColumn: false},
 		{name: 'item', displayColumn: false},
-		
 		{name: 'Line', displayColumn: true},
 		{name: 'Code', displayColumn: true},
 		{name: 'itemName', displayColumn: true},
-		
 		{name: 'StockTime', type: 'float', displayColumn: true},
 		{name: 'ShipTime', type: 'float', displayColumn: true},
 		{name: 'ManualQty', type: 'float', displayColumn: true},
-	{name: 'weight1', type: 'float',displayColumn: true},
-	{name: 'estimation1', type: 'float',displayColumn: true},
+		{name: 'weight1', type: 'float',displayColumn: true},
+		{name: 'estimation1', type: 'float',displayColumn: true},
 		{name: 'weight2', type: 'float',displayColumn: true},
 		{name: 'estimation2', type: 'float',displayColumn: true},
 		{name: 'weight3', type: 'float',displayColumn: true},
@@ -35,7 +33,5 @@ Ext.define('IMP.model.OrderDetail', {
 		{name: 'orderTotal', type: 'float',displayColumn: true},
 		{name: 'desiredStockTime', type: 'float',displayColumn: true},
 		{name: 'desiredStock', type: 'float',displayColumn: true}
-			
-		
 	]
 });

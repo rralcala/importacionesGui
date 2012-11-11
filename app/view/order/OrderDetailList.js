@@ -5,7 +5,7 @@
  * The store can be a LocalOrderDetail which means that the order is
  * going to be created or OrderDetail otherwise.
  * 
-@author: Roberto Rodriguez <rralcala@gmail.com>
+@author: Roberto Rodriguez Alcala <rralcala@gmail.com>
  **/
  var cellEditing = Ext.create('Ext.grid.plugin.CellEditing', {
         clicksToEdit: 1

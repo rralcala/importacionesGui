@@ -1,7 +1,7 @@
 /**
  * Defines de Order List GUI.
  * 
- * @author: Roberto Rodriguez <rralcala@gmail.com>
+ * @author: Roberto Rodriguez Alcala <rralcala@gmail.com>
  **/
 
 Ext.define('IMP.view.order.OrderListGui', {

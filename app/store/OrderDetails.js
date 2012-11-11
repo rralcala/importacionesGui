@@ -1,7 +1,7 @@
 /**
  * Defines the Order Details store.
  * 
- * @author: Jorge Ramirez <jorgeramirez1990@gmail.com>
+ * @author: Roberto Rodriguez Alcala <rralcala@gmail.com>
  **/
 
 Ext.define('IMP.store.OrderDetails', {

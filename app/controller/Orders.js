@@ -1,7 +1,7 @@
 /**
  * Orders Controller.
  * 
- * @author: Roberto Rodriguez <rralcala@gmail.com>
+ * @author: Roberto Rodriguez Alcala <rralcala@gmail.com>
  **/
 
 Ext.define('IMP.controller.Orders', {
@@ -49,7 +49,7 @@ Ext.define('IMP.controller.Orders', {
 			'orderdetaillist': {
                 edit: this.onGridEdit
             },
-            'orderlist button[action=createOrder]': {
+            'orderlist button[id=btSave]': {
 				click: this.onCreateOrderClicked
 			},
 			'orderlist button[action=applyParams]': {
@@ -97,6 +97,7 @@ Ext.define('IMP.controller.Orders', {
 			details = [],
 			i, j, exist = false;
 		
+	
 		for(i = 0; i < items.length; i++){
 		
 			for(j = 0; j < odStore.count(); j++){ //check if it is already selected.
@@ -116,9 +117,15 @@ Ext.define('IMP.controller.Orders', {
 		if(details.length > 0){
 			odStore.add(details);		
 		}
+		if(odStore.count() > 0)
+		{
+		
+			Ext.getCmp('btSave').setDisabled(false);
+		
+		}
 		grid.getView().getSelectionModel().deselectAll();
 		Ext.getCmp('orderdetaillist').filters.clearFilters();
-		this.disableCreateOrderButton(odStore);
+		//this.disableCreateOrderButton(odStore);
 	},
 
 	/**
@@ -137,16 +144,15 @@ Ext.define('IMP.controller.Orders', {
 			}
 			odStore.remove(details.slice(i, j));
 		}
-		this.disableCreateOrderButton(odStore);
+		if(odStore.count() === 0)
+		{
+		
+			Ext.getCmp('btSave').setDisabled(true);
+		
+		}
 	},
 	
-	/**
-	 * Disables/Enables the create order button.
-	 **/
-	disableCreateOrderButton: function(store) {
-		
-		//Ext.getCmp('createOrderButton').setDisabled(store.count() === 0);
-	},
+	
 	
 	/**
 	 * Handler that is fired when the Create Order button is clicked.
@@ -164,34 +170,46 @@ Ext.define('IMP.controller.Orders', {
 	 * Handler that is fired when the Create Order button is clicked.
 	 **/
 	onCreateOrderClicked: function(button){
-		var cr = Ext.getCmp("contentRegion"),
-			orderHeaderGrid = button.up('orderlist'), //order header grid
-			orderDetailGrid = cr.down('orderdetaillist'),
-			orderStore = IMP.App.getStore('Orders'),
-			orderDetailStore = IMP.App.getStore('OrderDetails'),
-			newOrder = Ext.create("IMP.model.Order"),
-			values = orderHeaderGrid.getView().getStore().first(),
-			details = [];
+		alert('Save');
+		var orderDetailGrid = Ext.getCmp("orderdetaillist");
+		//console.log(cr);
+		var header;
+		var orderStore = IMP.App.getStore('Orders');
+		var details = [];
 		
-		newOrder.fields.each(function(item, index, length){
-			newOrder.set(item.name, values.get(item.name));
-		});
+
+		header = { P1Start: Ext.Date.format(Ext.getCmp('p1start').value, 'Y-m-d'),
+					P1End: Ext.Date.format(Ext.getCmp('p1end').value, 'Y-m-d'),
+					P2Start: Ext.Date.format(Ext.getCmp('p2start').value, 'Y-m-d'),		
+					P2End:  Ext.Date.format(Ext.getCmp('p2end').value, 'Y-m-d'),
+					Description: Ext.getCmp('txDescription').value
+		};
+			
+		//var orderDetailStore = IMP.App.getStore('OrderDetails');
+		
+		//values = orderHeaderGrid.getView().getStore().first(),
 		
 		orderDetailGrid.getView().getStore().data.each(function(item, index, length){
 			details.push(item.data);
 		});
+	//	newOrder.fields.each(function(item, index, length){
+		var newOrder = [header, details];
+		console.log(newOrder);
+		//});
+		//newOrder.set(item.name, values.get(item.name));
+
 		
 		Ext.Ajax.request({ // creates the header
 			method: "POST",
 			url: orderStore.getProxy().api.create,
-			jsonData: newOrder.data,
+			jsonData: newOrder,
 			success: function(response){
-				var resp = Ext.JSON.decode(response.responseText);
-				Ext.Ajax.request({ // creates the details
-					method: 'POST',
-					url: orderDetailStore.getProxy().api.create,
-					jsonData: {details: details, request_id: resp.request_id},
-					success: function(response) {
+						var resp = Ext.JSON.decode(response.responseText);
+						//Ext.Ajax.request({ // creates the details
+						//	method: 'POST',
+						//	url: orderDetailStore.getProxy().api.create,
+						//	jsonData: {details: details, request_id: resp.request_id},
+							
 						Ext.Msg.show({
 							title:'OK',
 							msg: Conf.labelsText.order.OrderCreatedMsg,
@@ -204,8 +222,6 @@ Ext.define('IMP.controller.Orders', {
 							}
 						});
 					}
-				});
-			}
 		});
 	}
 });

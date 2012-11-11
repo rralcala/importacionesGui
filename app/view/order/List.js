@@ -1,12 +1,8 @@
 
 /**
- * Defines the List grid panel which shows orders header information.
+ * Defines the forms which contains orders HEADER information.
  * 
- * 
- * The store configuration can be LocalOrder which means the order
- * is going to be created or Orders otherwise.
- * 
- * @author: Roberto Rodriguez <rralcala@gmail.com>
+ * @author: Roberto Rodriguez Alcala <rralcala@gmail.com>
  **/
 var required = '<span style="color:red;font-weight:bold" data-qtip="Required">*</span>';
 
@@ -46,9 +42,6 @@ Ext.define('IMP.view.order.List', {
     defaults: {
         anchor: '100%'
     },
-	
-
-	
 		
 	initComponent: function() {
 	
@@ -70,9 +63,8 @@ Ext.define('IMP.view.order.List', {
         },{
             text: 'Guardar',
 			disabled: true,
-            handler: function() {
-                alert('Save');
-            }}];
+			id: 'btSave'
+            }];
 	this.items = [
 		{
 			xtype: 'container',
@@ -98,6 +90,7 @@ Ext.define('IMP.view.order.List', {
 						fieldLabel: labels.period2Start,
 						value: Ext.Date.add(date, Ext.Date.MONTH, -3),
 						name: 'p2start',
+						id:  'p2start',
 						xtype: 'datefield',
 						labelWidth: 100
 					}
@@ -110,11 +103,13 @@ Ext.define('IMP.view.order.List', {
 						fieldLabel: labels.period1End,
 						value: date,
 						name: 'p1end',
+						id:  'p1end',
 						xtype: 'datefield'
 					}, {
 						fieldLabel: labels.period2End,
 						value: date,
 						name: 'p2end',
+						id:  'p2end',
 						xtype: 'datefield'
 					}] 
 			},{   // column #3
@@ -124,6 +119,7 @@ Ext.define('IMP.view.order.List', {
 					items: [{
 						xtype: 'textfield',
 						name: 'description',
+						id: 'txDescription',
 						fieldLabel: 'Descripcion',
 						allowBlank: false,
 						maxLength: 100,
