@@ -16,7 +16,7 @@ Ext.define('IMP.view.order.OrderListGui', {
 	initComponent: function() {
 		this.items = [
 			 {
-				xtype: 'orderlist',
+				xtype: 'orderheadernav',
 				store: 'Orders',
 				width: '100%',
 				flex: 1,
@@ -40,8 +40,8 @@ Ext.define('IMP.view.order.OrderListGui', {
 	// override initEvents
 	initEvents: function() {
 		this.callParent();
-		var orderHeaderSm = this.getComponent('orderHeader').getSelectionModel();
-		orderHeaderSm.on('selectionchange', this.onRowSelect, this);
+//		var orderHeaderSm = this.getComponent('orderHeader').getSelectionModel();
+	//	orderHeaderSm.on('selectionchange', this.onRowSelect, this);
 	},
 
 	/**

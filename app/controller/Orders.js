@@ -12,7 +12,8 @@ Ext.define('IMP.controller.Orders', {
 		'order.ItemList',
 		'order.List',
 		'order.OrderListGui',
-		'order.CreateOrderGui'
+		'order.CreateOrderGui',
+		'order.OrderHeaderNav'
     ],
     
     stores: [
