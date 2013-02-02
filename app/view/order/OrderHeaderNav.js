@@ -127,14 +127,12 @@ Ext.define('IMP.view.order.OrderHeaderNav', {
                 /*renderer: function(value, metaData, record, rowIndex, colIndex, store, view){
                     return record.get("Line");//["Line"];
                 }*/
-            }/*,{
-                header: indicatorLabels.codeHeader,  
-                dataIndex: 'Code',
-                width: 80,
-                renderer: function(value, metaData, record, rowIndex, colIndex, store, view){
-                    return record.get("Code");//[""];
-                }
             },{
+                header: labelsHeader.DescriptionHeader,  
+                dataIndex: 'Description',
+                width: 80,
+              
+            }/*,{
                 header: indicatorLabels.nameHeader, 
                 dataIndex: 'itemName',
                 menuDisabled: true,
@@ -146,14 +144,14 @@ Ext.define('IMP.view.order.OrderHeaderNav', {
         ];
 
 
-        var fields = [ 'P1Start','P1End','P2Start','P2End','Description' ];	
+        var fields = [ 'P1Start','P1End','P2Start','P2End' ];	
 		for(i = 0; i < fields.length; i++){
 		    var e = fields[i];
 			this.columns.push({
 				header: labelsHeader[e + 'Header'],
 				dataIndex: e,
-				xtype: 'numbercolumn',
-				format: '0.00',
+				renderer: Ext.util.Format.dateRenderer('d/m/Y'),
+			//	format: '0.00',
 				width: 80,
 				menuDisabled: true
 						

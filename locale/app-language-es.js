@@ -150,7 +150,7 @@ Conf.labelsText.order.BasicList = {
 	familyHeader: 'Linea',
 	codeHeader: 'Codigo',
 	nameHeader: 'Item',
-	descriptionHeader: 'Descripcion',
+	DescriptionHeader: 'Descripcion',
 	estimation1Header: 'Periodo 1',
 	estimation2Header: 'Periodo 2',
 	estimation3Header: 'Tendencia',
