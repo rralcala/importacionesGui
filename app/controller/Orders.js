@@ -22,6 +22,7 @@ Ext.define('IMP.controller.Orders', {
 		'OrderDetails',
 		'LocalOrder',
 		'LocalOrderDetail',
+		'SavedOrderDetails'
     ],
     
     models: [
@@ -55,6 +56,9 @@ Ext.define('IMP.controller.Orders', {
 			},
 			'orderlist button[action=applyParams]': {
 				click: this.onApplyParamsClicked
+			},
+			'orderheadernav': {
+				selectionchange: this.orderheadernavOnSelectionChange
 			}  
 		});
 		//alert(Ext.getCmp('orderlist').items[0]);
@@ -129,6 +133,21 @@ Ext.define('IMP.controller.Orders', {
 		//this.disableCreateOrderButton(odStore);
 	},
 
+	
+	orderheadernavOnSelectionChange: function( grid, element, eOpts )
+	{
+		//console.log(element[0].data.id);
+		var store = IMP.App.getStore('SavedOrderDetails');
+		//store.loadData([],false);
+		store.load({
+				  params: {id: element[0].data.id},
+		callback: function(records, operation, success) {
+	        // the operation object
+	        // contains all of the details of the load operation
+			Ext.getCmp('orderdetaillist').getStore().loadRecords(records,{addRecords: false});
+	    }		
+		});
+	},
 	/**
 	 * Handler that is fired when the Delete button in the order details 
 	 * list is clicked.
@@ -171,9 +190,8 @@ Ext.define('IMP.controller.Orders', {
 	 * Handler that is fired when the Create Order button is clicked.
 	 **/
 	onCreateOrderClicked: function(button){
-		alert('Save');
 		var orderDetailGrid = Ext.getCmp("orderdetaillist");
-		//console.log(cr);
+		
 		var header;
 		var orderStore = IMP.App.getStore('Orders');
 		var details = [];
@@ -185,17 +203,12 @@ Ext.define('IMP.controller.Orders', {
 					P2End:  Ext.Date.format(Ext.getCmp('p2end').value, 'Y-m-d'),
 					Description: Ext.getCmp('txDescription').value
 		};
-			
-		//var orderDetailStore = IMP.App.getStore('OrderDetails');
-		
-		//values = orderHeaderGrid.getView().getStore().first(),
 		
 		orderDetailGrid.getView().getStore().data.each(function(item, index, length){
 			details.push(item.data);
 		});
 	//	newOrder.fields.each(function(item, index, length){
 		var newOrder = [header, details];
-		console.log(newOrder);
 		//});
 		//newOrder.set(item.name, values.get(item.name));
 

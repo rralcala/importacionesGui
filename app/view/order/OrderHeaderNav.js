@@ -159,16 +159,16 @@ Ext.define('IMP.view.order.OrderHeaderNav', {
 		}        
 		
 		
-		this.selModel = Ext.create('Ext.selection.CheckboxModel', {
-			listeners: {
-				selectionchange: {fn: this.onSelectChange, scope: this}
-			}
-		});
+	//	this.selModel = Ext.create('Ext.selection.CheckboxModel', {
+	//		listeners: {
+	//			selectionchange: {fn: this.onSelectChange, scope: this}
+	//		}
+	//	});
         this.callParent(arguments);
-        this.getSelectionModel().on('selectionchange', this.onSelectChange, this);
+    //    this.getSelectionModel().on('selectionchange', this.onSelectChange, this);
 	},
     
-    onSelectChange: function(selModel, selections){
-        this.down('#delete-item').setDisabled(selections.length === 0);
-    }
+   // onSelectChange: function(selModel, selections){
+   //     this.down('#delete-item').setDisabled(selections.length === 0);
+   // }
 });
