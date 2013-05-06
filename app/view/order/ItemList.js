@@ -52,7 +52,7 @@ Ext.define('IMP.view.order.ItemList' ,{
 					type: 'string', 
 					//options: branchSt.collect("value", false), 
 					dataIndex: 'Code'
-				}/*,{
+				},{
 					type: 'customlist', 
 					options: countrySt.collect("value", false), 
 					dataIndex: 'Country'
@@ -60,7 +60,7 @@ Ext.define('IMP.view.order.ItemList' ,{
 					type: 'customlist', 
 					options: artTypeSt.collect("value", false), 
 					dataIndex: 'ArtType'
-				}*/
+				}
 			]            
 
         }; 
@@ -71,7 +71,15 @@ Ext.define('IMP.view.order.ItemList' ,{
             {   
                 header: labels.familyHeader,  
                 dataIndex: 'Line',
-                width: 80
+                width: 80,
+                filter: {
+                    //type: 'combo',
+                    //displayField: 'value',
+                    //valueField: 'value',
+                    //store: store
+                    type: 'customlist',
+                    options: lineSt.collect("value", false)
+                }
             },{
                 header: labels.codeHeader,  
                 dataIndex: 'Code',
@@ -104,9 +112,10 @@ Ext.define('IMP.view.order.ItemList' ,{
         
         var gridStore = IMP.App.getStore("OrderDetails");
 		var date = new Date();
-
+		
+		// Default Date Range Parameters
         gridStore.getProxy().extraParams['p1start'] = Ext.Date.format(Ext.Date.add(date, Ext.Date.YEAR, -1), 'Y-m-d');
-		gridStore.getProxy().extraParams['p2start'] = Ext.Date.format(Ext.Date.add(date, Ext.Date.Month, -3), 'Y-m-d');
+		gridStore.getProxy().extraParams['p2start'] = Ext.Date.format(Ext.Date.add(date, Ext.Date.MONTH, -3), 'Y-m-d');
 		gridStore.getProxy().extraParams['p1end'] = Ext.Date.format(date, 'Y-m-d');
 		gridStore.getProxy().extraParams['p2end'] = Ext.Date.format(date, 'Y-m-d');
 		

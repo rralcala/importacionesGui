@@ -123,6 +123,7 @@ Ext.define('IMP.view.order.OrderDetailList', {
                 header: indicatorLabels.familyHeader,  
                 dataIndex: 'Line',
                 width: 80,
+				
                 renderer: function(value, metaData, record, rowIndex, colIndex, store, view){
                     return record.get("Line");//["Line"];
                 }
@@ -130,6 +131,14 @@ Ext.define('IMP.view.order.OrderDetailList', {
                 header: indicatorLabels.codeHeader,  
                 dataIndex: 'Code',
                 width: 80,
+                filter: {
+                    //type: 'combo',
+                    //displayField: 'value',
+                    //valueField: 'value',
+                    //store: store
+                    type: 'string',
+                    options: store.collect("value", false)
+                },
                 renderer: function(value, metaData, record, rowIndex, colIndex, store, view){
                     return record.get("Code");//[""];
                 }
@@ -147,8 +156,7 @@ Ext.define('IMP.view.order.OrderDetailList', {
         //var fields = IMP.model.OrderDetail.prototype.fields.items;
 	        var fields = [
                       /*'estimation1', 'weight1', 'estimation2', 'weight2','estimation3', 'weight3',*/
-                      'estimatedSales','currentStock','pendingStock','desiredStock','ShipTime',
-                      'StockTime','suggestedQty'
+                      'estimatedSales','currentStock','pendingStock','StockTime','desiredStock','ShipTime','suggestedQty'
                   ];	
         for(i = 0; i < fields.length; i++){
             var e = fields[i];
