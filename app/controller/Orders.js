@@ -79,6 +79,12 @@ Ext.define('IMP.controller.Orders', {
 	 * Calculates fields after a manual modification.
 	 */
 	onGridEdit: function(editor, e) {
+		
+		if(e.field == 'desiredStockTime')
+		{
+		 	e.record.set('suggestedQty', (e.record.data.desiredStockTime * e.record.data.estimatedSales) - e.record.data.pendingStock);
+		 	e.record.set('ManualQty', (e.record.data.desiredStockTime * e.record.data.estimatedSales) - e.record.data.pendingStock);
+		}
 	e.record.set('orderTotal', e.record.data.price * e.record.data.ManualQty);
 		//e.record.data.orderTotal = ;
     },

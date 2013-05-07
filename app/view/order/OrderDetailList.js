@@ -131,14 +131,7 @@ Ext.define('IMP.view.order.OrderDetailList', {
                 header: indicatorLabels.codeHeader,  
                 dataIndex: 'Code',
                 width: 80,
-                filter: {
-                    //type: 'combo',
-                    //displayField: 'value',
-                    //valueField: 'value',
-                    //store: store
-                    type: 'string',
-                    options: store.collect("value", false)
-                },
+
                 renderer: function(value, metaData, record, rowIndex, colIndex, store, view){
                     return record.get("Code");//[""];
                 }
